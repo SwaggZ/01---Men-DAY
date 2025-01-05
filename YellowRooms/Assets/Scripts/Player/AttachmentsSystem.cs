@@ -5,7 +5,10 @@ using Mirror;
 
 public class AttachmentsSystem : NetworkBehaviour
 {
+    [Header("Scopes")]
     public GameObject[] Scopes;
+    public Transform[] ScopeAimingPositions; // Aiming positions for each scope
+    
     public GameObject[] Lasers;
     public GameObject[] Supressors;
 
@@ -19,25 +22,25 @@ public class AttachmentsSystem : NetworkBehaviour
 
     void Update()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            selectScope();
-            selectLaser();
-            selectSupressor();
-        }
+        // if(Input.GetKeyDown(KeyCode.V))
+        // {
+        //     selectScope();
+        //     selectLaser();
+        //     selectSupressor();
+        // }
     }
 
     void selectScope()
     {
         ScopeIndex = Random.Range(0, Scopes.Length + 1);
-        if(ScopeIndex == Scopes.Length)
+        if (ScopeIndex == Scopes.Length)
         {
-            for(int j = 0; j <= Scopes.Length; j++)
+            for (int j = 0; j <= Scopes.Length; j++)
             {
                 Scopes[j].SetActive(false);
             }
@@ -45,9 +48,9 @@ public class AttachmentsSystem : NetworkBehaviour
         else
         {
             Scopes[ScopeIndex].SetActive(true);
-            for(int j = 0; j < Scopes.Length; j++)
+            for (int j = 0; j < Scopes.Length; j++)
             {
-                if(j != ScopeIndex)
+                if (j != ScopeIndex)
                 {
                     Scopes[j].SetActive(false);
                 }
@@ -58,9 +61,9 @@ public class AttachmentsSystem : NetworkBehaviour
     void selectLaser()
     {
         LaserIndex = Random.Range(0, Lasers.Length + 1);
-        if(LaserIndex == Lasers.Length)
+        if (LaserIndex == Lasers.Length)
         {
-            for(int j = 0; j <= Lasers.Length; j++)
+            for (int j = 0; j <= Lasers.Length; j++)
             {
                 Lasers[j].SetActive(false);
             }
@@ -68,9 +71,9 @@ public class AttachmentsSystem : NetworkBehaviour
         else
         {
             Lasers[LaserIndex].SetActive(true);
-            for(int j = 0; j < Lasers.Length; j++)
+            for (int j = 0; j < Lasers.Length; j++)
             {
-                if(j != LaserIndex)
+                if (j != LaserIndex)
                 {
                     Lasers[j].SetActive(false);
                 }
@@ -81,9 +84,9 @@ public class AttachmentsSystem : NetworkBehaviour
     void selectSupressor()
     {
         SupressorIndex = Random.Range(0, Supressors.Length + 1);
-        if(SupressorIndex == Supressors.Length)
+        if (SupressorIndex == Supressors.Length)
         {
-            for(int j = 0; j <= Supressors.Length; j++)
+            for (int j = 0; j <= Supressors.Length; j++)
             {
                 Supressors[j].SetActive(false);
             }
@@ -91,9 +94,9 @@ public class AttachmentsSystem : NetworkBehaviour
         else
         {
             Supressors[SupressorIndex].SetActive(true);
-            for(int j = 0; j < Supressors.Length; j++)
+            for (int j = 0; j < Supressors.Length; j++)
             {
-                if(j != SupressorIndex)
+                if (j != SupressorIndex)
                 {
                     Supressors[j].SetActive(false);
                 }

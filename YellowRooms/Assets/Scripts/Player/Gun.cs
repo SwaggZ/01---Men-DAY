@@ -61,12 +61,21 @@ public class Gun : NetworkBehaviour
     public float pitchOffset;
     public AudioClip Clip;
 
-    private void Awake() {
+    [Header("Aiming")]
+    public Transform defaultAimingPosition; // Default aiming position
+    public float defaultFOV = 60f; // Default field of view
+    public float aimSpeed = 5f; // Speed of aiming transition
+
+    public Transform currentAimingPosition; // Current aiming position
+    public float currentFOV; // Current field of view
+
+    private void Awake()
+    {
         //if(!isLocalPlayer)
         //{
-            // return;
+        // return;
         // }
-        
+
         bulletsLeft = magazineSize;
         readyToShoot = true;
         spreadTemp = spread;
@@ -76,15 +85,16 @@ public class Gun : NetworkBehaviour
         shootingSound = GetComponent<AudioSource>();
     }
 
-    private void Update() {
-        
+    private void Update()
+    {
+
         shootingRN = false;
         Aim();
         MyInput();
 
         ammo.text = (bulletsLeft / bulletsPerTap) + "\n" + (magazineSize / bulletsPerTap); //((magazineSize / bulletsPerTap) - (magazineSize - bulletsLeft)) + 
 
-        if(Physics.Raycast(clipProjector.transform.position, clipProjector.transform.forward, out hit, checkDistance, notPlayers))
+        if (Physics.Raycast(clipProjector.transform.position, clipProjector.transform.forward, out hit, checkDistance, notPlayers))
         {
             lerpPos = 1 - (hit.distance / checkDistance);
             isClipping = true;
@@ -97,7 +107,7 @@ public class Gun : NetworkBehaviour
 
         Mathf.Clamp01(lerpPos);
 
-        transform.localRotation = 
+        transform.localRotation =
         Quaternion.Lerp(
             Quaternion.Euler(Vector3.zero),
             Quaternion.Euler(newDirection),
@@ -107,27 +117,27 @@ public class Gun : NetworkBehaviour
 
     private void MyInput()
     {
-        if(auto)
+        if (auto)
         {
             //if(GetComponent<NetworkView>().isMine)
             //{
-                shooting = Input.GetKey(KeyCode.Mouse0);
+            shooting = Input.GetKey(KeyCode.Mouse0);
             //}
         }
         else
         {
             //if(GetComponent<NetworkView>().isMine)
             //{
-                shooting = Input.GetKeyDown(KeyCode.Mouse0);
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
             //}
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
         {
             Reload();
         }
 
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
             Shoot();
@@ -136,7 +146,7 @@ public class Gun : NetworkBehaviour
 
     private void Shoot()
     {
-        if(!isClipping)
+        if (!isClipping)
         {
             readyToShoot = false;
             shootingRN = true;
@@ -152,14 +162,14 @@ public class Gun : NetworkBehaviour
             Vector3 direction = shootPoint.transform.forward + new Vector3(x, y, z);
 
             Debug.DrawRay(shootPoint.transform.position, direction * range, Color.yellow, 10f);
-            if(Physics.Raycast(attackPoint.transform.position, direction, out rayHit, range))
+            if (Physics.Raycast(attackPoint.transform.position, direction, out rayHit, range))
             {
-                if(rayHit.collider.CompareTag("Enemy"))
+                if (rayHit.collider.CompareTag("Enemy"))
                 {
                     Debug.Log("Enemy Hit For: " + damage + " Damage");
                     rayHit.collider.GetComponent<PlayerStats>().TakeDamage(damage);
                 }
-                if(rayHit.collider.CompareTag("AIEnemy"))
+                if (rayHit.collider.CompareTag("AIEnemy"))
                 {
                     Debug.Log("Enemy Hit For: " + damage + " Damage");
                     rayHit.collider.GetComponent<Enemy>().TakeDamage(damage);
@@ -176,7 +186,7 @@ public class Gun : NetworkBehaviour
 
             Invoke("ResetShot", timeBetweenShooting);
 
-            if(bulletsShot > 0 && bulletsLeft > 0)
+            if (bulletsShot > 0 && bulletsLeft > 0)
             {
                 Invoke("Shoot", timeBetweenShots);
             }
@@ -202,18 +212,18 @@ public class Gun : NetworkBehaviour
 
     void Aim()
     {
-        if(Input.GetMouseButton(1) && !reloading && !isClipping)
+        if (Input.GetMouseButton(1) && !reloading)
         {
-            transform.position = Vector3.Lerp(transform.position, ADSPos.position, ADSLerp * Time.deltaTime);
-            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, adsFOV, ADSLerp * Time.deltaTime));
-            spread = spreadTemp / 2;
+            // Set aiming position and FOV
+            transform.position = Vector3.Lerp(transform.position, currentAimingPosition.position, aimSpeed * Time.deltaTime);
+            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, currentFOV, aimSpeed * Time.deltaTime));
             isAiming = true;
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, defaultPos.position, ADSLerp * Time.deltaTime);
-            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, 60f, ADSLerp * Time.deltaTime));
-            spread = spreadTemp;
+            // Return to default position and FOV
+            transform.position = Vector3.Lerp(transform.position, defaultAimingPosition.position, aimSpeed * Time.deltaTime);
+            SetFieldOfView(Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, aimSpeed * Time.deltaTime));
             isAiming = false;
         }
     }

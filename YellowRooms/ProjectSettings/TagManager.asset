@@ -7,6 +7,9 @@ TagManager:
   - Item
   - Enemy
   - AIEnemy
+  - Scope
+  - Suppressor
+  - Laser
   layers:
   - Default
   - TransparentFX
