@@ -60,8 +60,9 @@ public class AttachmentMenu : MonoBehaviour
 
         if (isMenuOpen)
         {
+            // Opening the menu
             attachmentMenu.SetActive(true);
-            UpdateAttachmentMenu(); // Always refresh the menu when opened
+            UpdateAttachmentMenu();
 
             // Release the cursor
             Cursor.lockState = CursorLockMode.None;
@@ -70,17 +71,19 @@ public class AttachmentMenu : MonoBehaviour
             // Disable gameplay
             DisableGameplay();
 
-            // Disable shooting for the active weapon
+            // Disable the active weapon's gun script
             if (lastActiveWeapon != null)
             {
                 var gunScript = lastActiveWeapon.GetComponent<Gun>();
-                if (gunScript != null) gunScript.enabled = false;
+                if (gunScript != null)
+                {
+                    gunScript.enabled = false;
+                }
             }
-
-            isMenuOpen = !isMenuOpen;
         }
         else
         {
+            // Closing the menu
             attachmentMenu.SetActive(false);
 
             // Lock the cursor
@@ -90,14 +93,15 @@ public class AttachmentMenu : MonoBehaviour
             // Enable gameplay
             EnableGameplay();
 
-            // Enable shooting for the active weapon
+            // Enable the active weapon's gun script
             if (lastActiveWeapon != null)
             {
                 var gunScript = lastActiveWeapon.GetComponent<Gun>();
-                if (gunScript != null) gunScript.enabled = true;
+                if (gunScript != null)
+                {
+                    gunScript.enabled = true;
+                }
             }
-
-            isMenuOpen = !isMenuOpen;
         }
     }
 
@@ -217,57 +221,39 @@ public class AttachmentMenu : MonoBehaviour
         }
     }
 
-    void DisableGameplay()
-    {
-        // Disable shooting
-        var gunScript = weaponHolder.GetComponentInChildren<Gun>();
-        if (gunScript != null) gunScript.enabled = false;
-
-        // Disable sway
-        var swayScript = weaponHolder.GetComponentInChildren<Sway>();
-        if (swayScript != null) swayScript.enabled = false;
-
-        // Disable camera movement
-        var mouseLookScript = CameraHolder.GetComponentInChildren<MouseLook>();
-        if (mouseLookScript != null)
-        {
-            mouseLookScript.enabled = false;
-            Debug.Log("Camera movement disabled.");
-        }
-        else
-        {
-            Debug.LogError("MouseLook script not found in CameraHolder!");
-        }
-    }
-
     void EnableGameplay()
     {
-        // Enable shooting
-        var gunScript = weaponHolder.GetComponentInChildren<Gun>();
-        if (gunScript != null) gunScript.enabled = true;
-
-        // Enable sway
-        var swayScript = weaponHolder.GetComponentInChildren<Sway>();
-        if (swayScript != null) swayScript.enabled = true;
+        // Enable shooting for the active weapon
+        if (lastActiveWeapon != null)
+        {
+            var gunScript = lastActiveWeapon.GetComponent<Gun>();
+            if (gunScript != null) gunScript.enabled = true;
+        }
 
         // Enable camera movement
         var mouseLookScript = CameraHolder.GetComponentInChildren<MouseLook>();
-        if (mouseLookScript != null)
+        if (mouseLookScript != null) mouseLookScript.enabled = true;
+    }
+
+    void DisableGameplay()
+    {
+        // Disable shooting for the active weapon
+        if (lastActiveWeapon != null)
         {
-            mouseLookScript.enabled = true;
-            Debug.Log("Camera movement re-enabled.");
+            var gunScript = lastActiveWeapon.GetComponent<Gun>();
+            if (gunScript != null) gunScript.enabled = false;
         }
-        else
-        {
-            Debug.LogError("MouseLook script not found in CameraHolder!");
-        }
+
+        // Disable camera movement
+        var mouseLookScript = CameraHolder.GetComponentInChildren<MouseLook>();
+        if (mouseLookScript != null) mouseLookScript.enabled = false;
     }
 
     void HandleShootingScripts(GameObject newWeapon, GameObject previousWeapon)
     {
         if (previousWeapon != null)
         {
-            // Disable the shooting script of the previous weapon
+            // Always disable the shooting script of the previous weapon
             var previousGunScript = previousWeapon.GetComponent<Gun>();
             if (previousGunScript != null)
             {
@@ -277,11 +263,11 @@ public class AttachmentMenu : MonoBehaviour
 
         if (newWeapon != null)
         {
-            // Disable the shooting script of the new weapon if the menu is open
+            // Enable the shooting script of the new weapon only if the menu is closed
             var newGunScript = newWeapon.GetComponent<Gun>();
             if (newGunScript != null)
             {
-                newGunScript.enabled = !isMenuOpen; // Enabled only if the menu is closed
+                newGunScript.enabled = !isMenuOpen;
             }
         }
     }

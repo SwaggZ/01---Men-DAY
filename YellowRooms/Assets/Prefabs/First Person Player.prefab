@@ -615,7 +615,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260946173364277284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -626,7 +626,7 @@ Transform:
   - {fileID: 6030224728328201844}
   - {fileID: 3849688493282695368}
   - {fileID: 3783221232165994882}
-  m_Father: {fileID: 260946173806957176}
+  m_Father: {fileID: 3535731642098560631}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260946173364277286
@@ -862,12 +862,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260946173567726669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 260946173806957176}
+  m_Father: {fileID: 3535731642098560631}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &260946173567726671
@@ -1079,9 +1079,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 260946173567726668}
-  - {fileID: 260946173364277287}
-  - {fileID: 2693377361704805147}
+  - {fileID: 3535731642098560631}
   m_Father: {fileID: 260946175197229071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1530,6 +1528,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946174675772763}
   shootPoint: {fileID: 260946174675772763}
   whatIsEnemy:
@@ -2154,6 +2153,7 @@ MonoBehaviour:
   CurrentHealth: 0
   MaxHealth: 100
   isDead: 0
+  damageCounterPrefab: {fileID: 1154413593555398374, guid: 1dfdc21fbb825a0449db250ca9c11340, type: 3}
 --- !u!114 &5291572927116756858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4512,6 +4512,84 @@ Transform:
   m_Father: {fileID: 4777778289667463971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!1 &1433809383950120862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3535731642098560631}
+  - component: {fileID: 7221922095430032621}
+  m_Layer: 6
+  m_Name: CounterCam
+  m_TagString: GameplayCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3535731642098560631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433809383950120862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 260946173567726668}
+  - {fileID: 260946173364277287}
+  - {fileID: 2693377361704805147}
+  m_Father: {fileID: 260946173806957176}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &7221922095430032621
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433809383950120862}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1479428457733500780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6380,6 +6458,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946174009100540}
   shootPoint: {fileID: 260946174009100540}
   whatIsEnemy:
@@ -8963,6 +9042,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946173506939271}
   shootPoint: {fileID: 260946173506939271}
   whatIsEnemy:
@@ -10832,6 +10912,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946173595563189}
   shootPoint: {fileID: 260946173595563189}
   whatIsEnemy:
@@ -12515,12 +12596,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5446234120708860828}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.23, y: -0.3, z: 0.73}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.23, y: -0.29999995, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 260946173806957176}
+  m_Father: {fileID: 3535731642098560631}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!20 &6255175761427276344
@@ -13768,7 +13849,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030224728328201845}
-  m_LocalRotation: {x: 0.004363274, y: 0, z: 0, w: 0.9999905}
+  m_LocalRotation: {x: 0.004363274, y: -0, z: -0, w: 0.9999905}
   m_LocalPosition: {x: 0.42, y: -0.28399992, z: 0.819}
   m_LocalScale: {x: 1.5, y: 1.4999999, z: 1.4999999}
   m_ConstrainProportionsScale: 0
@@ -13806,6 +13887,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946174852570705}
   shootPoint: {fileID: 260946174852570705}
   whatIsEnemy:
@@ -18298,6 +18380,7 @@ MonoBehaviour:
   shootingRN: 0
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
+  counterCam: {fileID: 7221922095430032621}
   attackPoint: {fileID: 260946175472253280}
   shootPoint: {fileID: 260946175472253280}
   whatIsEnemy:

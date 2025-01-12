@@ -396,6 +396,8 @@
 "Assets/MilkShake/Scripts/ShakeState.cs"
 "Assets/MilkShake/Scripts/ShakeType.cs"
 "Assets/Scripts/Enemies/Enemy.cs"
+"Assets/Scripts/Global/Billboard.cs"
+"Assets/Scripts/Global/DamageCounter.cs"
 "Assets/Scripts/Player/AttachmentMenu.cs"
 "Assets/Scripts/Player/AttachmentsSystem.cs"
 "Assets/Scripts/Player/CameraRecoil.cs"

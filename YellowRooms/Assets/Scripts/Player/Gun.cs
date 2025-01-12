@@ -22,6 +22,7 @@ public class Gun : NetworkBehaviour
     [Header("Cameras")]
     public Camera fpsCam;
     public Camera weaponCam;
+    public Camera counterCam;
 
     [Header("Points")]
     public Transform attackPoint;
@@ -232,5 +233,6 @@ public class Gun : NetworkBehaviour
     {
         fpsCam.fieldOfView = fov;
         weaponCam.fieldOfView = fov;
+        counterCam.fieldOfView = fov;
     }
 }

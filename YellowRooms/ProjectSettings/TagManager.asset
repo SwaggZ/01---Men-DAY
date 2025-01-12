@@ -10,6 +10,8 @@ TagManager:
   - Scope
   - Suppressor
   - Laser
+  - GameplayCamera
+  - Counters
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Enemy
   - PlayerBody
   - Weapon
-  - 
+  - Counters
   - 
   - 
   - 
@@ -46,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: DamageCounters
+    uniqueID: 3916935223
     locked: 0
