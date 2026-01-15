@@ -1529,7 +1529,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946174675772763}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946174675772763}
   shootPoint: {fileID: 260946174675772763}
   whatIsEnemy:
     serializedVersion: 2
@@ -1549,7 +1550,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0.1
-  Clip: {fileID: 8300000, guid: b7998d4f94ce67941923ab6444be80c5, type: 3}
+  Clip: {fileID: 8300000, guid: 44eea8ec11275f246a21bab3dc59cb3b, type: 3}
   defaultAimingPosition: {fileID: 260946174131632278}
   defaultFOV: 60
   aimSpeed: 20
@@ -6300,7 +6301,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2345887665034171370}
-  m_LocalRotation: {x: 0.0017452955, y: 0, z: 0, w: 0.9999985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6309,7 +6310,7 @@ Transform:
   - {fileID: 2856824310441250298}
   m_Father: {fileID: 6030224728328201844}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.2, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2413551013396411746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6459,7 +6460,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946174009100540}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946174009100540}
   shootPoint: {fileID: 260946174009100540}
   whatIsEnemy:
     serializedVersion: 2
@@ -6479,7 +6481,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0
-  Clip: {fileID: 8300000, guid: 00b9ad8bc2a8f564ea3067069ef6b6c6, type: 3}
+  Clip: {fileID: 8300000, guid: f818941e849fd0043abadf5d5933f528, type: 3}
   defaultAimingPosition: {fileID: 260946175338666146}
   defaultFOV: 60
   aimSpeed: 20
@@ -9043,7 +9045,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946173506939271}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946173506939271}
   shootPoint: {fileID: 260946173506939271}
   whatIsEnemy:
     serializedVersion: 2
@@ -9063,7 +9066,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0.1
-  Clip: {fileID: 8300000, guid: 340e5d45819cd5049a5f4c0bb34eac52, type: 3}
+  Clip: {fileID: 8300000, guid: b8ec1d05cff45fc4899e0e2044a6ac84, type: 3}
   defaultAimingPosition: {fileID: 260946174338017986}
   defaultFOV: 60
   aimSpeed: 15
@@ -10913,7 +10916,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946173595563189}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946173595563189}
   shootPoint: {fileID: 260946173595563189}
   whatIsEnemy:
     serializedVersion: 2
@@ -10933,7 +10937,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0.1
-  Clip: {fileID: 8300000, guid: 6ada14328a1956147a264cf373544ede, type: 3}
+  Clip: {fileID: 8300000, guid: ab158f1aaf85af7499d72aa50d03a4b9, type: 3}
   defaultAimingPosition: {fileID: 260946174981260748}
   defaultFOV: 60
   aimSpeed: 17
@@ -13841,7 +13845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6030224728328201844
 Transform:
   m_ObjectHideFlags: 0
@@ -13849,7 +13853,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030224728328201845}
-  m_LocalRotation: {x: 0.004363274, y: -0, z: -0, w: 0.9999905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.42, y: -0.28399992, z: 0.819}
   m_LocalScale: {x: 1.5, y: 1.4999999, z: 1.4999999}
   m_ConstrainProportionsScale: 0
@@ -13858,7 +13862,7 @@ Transform:
   - {fileID: 260946174852570705}
   m_Father: {fileID: 260946173364277287}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0.5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6030224728328201846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13888,7 +13892,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946174852570705}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946174852570705}
   shootPoint: {fileID: 260946174852570705}
   whatIsEnemy:
     serializedVersion: 2
@@ -13908,7 +13913,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0.1
-  Clip: {fileID: 8300000, guid: a071c648b7bad624a84a3fcfe3269f59, type: 3}
+  Clip: {fileID: 8300000, guid: 3b3feb36183917a46b63ca37d6389ffe, type: 3}
   defaultAimingPosition: {fileID: 260946175328558073}
   defaultFOV: 60
   aimSpeed: 17
@@ -18381,7 +18386,8 @@ MonoBehaviour:
   fpsCam: {fileID: 260946173806957173}
   weaponCam: {fileID: 260946173567726671}
   counterCam: {fileID: 7221922095430032621}
-  attackPoint: {fileID: 260946175472253280}
+  attackPoint: {fileID: 260946173806957176}
+  flashPoint: {fileID: 260946175472253280}
   shootPoint: {fileID: 260946175472253280}
   whatIsEnemy:
     serializedVersion: 2
@@ -18401,7 +18407,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1975
   pitchOffset: 0.1
-  Clip: {fileID: 8300000, guid: b7c4c73d281e4bd47bfb81a4bb51c018, type: 3}
+  Clip: {fileID: 8300000, guid: df409572484fdd24eb1d448d4cee7b16, type: 3}
   defaultAimingPosition: {fileID: 260946174888896999}
   defaultFOV: 60
   aimSpeed: 20

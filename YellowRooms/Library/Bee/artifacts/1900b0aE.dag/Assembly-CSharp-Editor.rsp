@@ -362,6 +362,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Mirror.Examples.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Mirror.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Mirror.Transports.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/NavMeshComponents.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/NavMeshComponentsEditor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/SimpleWebTransport.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Telepathy.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"

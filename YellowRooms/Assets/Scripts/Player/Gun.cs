@@ -26,6 +26,7 @@ public class Gun : NetworkBehaviour
 
     [Header("Points")]
     public Transform attackPoint;
+    public Transform flashPoint;
     public Transform shootPoint;
 
     [Header("Shooting Physics")]
@@ -180,7 +181,7 @@ public class Gun : NetworkBehaviour
             Recoil_Script.RecoilFire();
 
             Instantiate(bulletHoleGraphics, rayHit.point, Quaternion.LookRotation(rayHit.normal));
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.LookRotation(transform.forward));
+            Instantiate(muzzleFlash, flashPoint.position, Quaternion.LookRotation(transform.forward));
 
             bulletsLeft--;
             bulletsShot--;
